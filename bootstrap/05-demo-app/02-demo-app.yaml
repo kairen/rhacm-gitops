@@ -19,7 +19,7 @@ spec:
     spec:
       project: demo-app
       source:
-        repoURL: https://github.com/ignaciolago/rhacm-gitops.git
+        repoURL: https://github.com/kairen/rhacm-gitops.git
         targetRevision: main
         path: resources/05-demo-app
       destination:

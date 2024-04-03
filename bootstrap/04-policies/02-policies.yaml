@@ -5,12 +5,9 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-    - clusterDecisionResource:
-        configMapRef: acm-placement
-        labelSelector:
-          matchLabels:
-            cluster.open-cluster-management.io/placement: local-placement
-        requeueAfterSeconds: 180
+    - list:
+      elements: 
+      - name: in-cluster 
   template:
     metadata:
       name: policies-{{name}}
@@ -19,12 +16,11 @@ spec:
     spec:
       project: policies
       source:
-        repoURL: https://github.com/ignaciolago/rhacm-gitops.git
+        repoURL: https://github.com/kairen/rhacm-gitops.git
         targetRevision: main
         path: resources/04-policies
       destination:
-        namespace: openshift-gitops
-        server: "{{server}}"
+        server: https://kubernetes.default.svc
       syncPolicy:
         automated:
           selfHeal: true

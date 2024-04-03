@@ -3,9 +3,9 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
-- 00-compliance-placementbinding.yaml
-- 00-namespace-placementbinding.yaml
-- 01-compliance-placementrule.yaml
-- 01-namespace-placementrule.yaml
+- 00-compliance-placementrule.yaml
+- 00-namespace-placementrule.yaml
+- 01-compliance-placementbinding.yaml
+- 01-namespace-placementbinding.yaml
 - 02-compliance-policy.yaml
 - 02-namespace-policy.yaml
